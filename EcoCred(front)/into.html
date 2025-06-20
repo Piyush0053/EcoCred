@@ -3,122 +3,390 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Website</title>
+  <meta name="description" content="EcoCred - Trade carbon credits and fight climate change through blockchain technology">
+  <title>EcoCred | Carbon Credit Trading Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    *{
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-    }
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    .video-container {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      overflow: hidden;
-      z-index: -1;
-    }
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .overlay {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.6); /* Adjust the opacity here */
-    }
-    .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-    .logo {
-      max-width: 400px;
-      margin-top: 20px;
-    }
-    .navbar {
-      background-color: rgba(0, 0, 0, 0); /* Adjust the opacity here */
-      overflow: hidden;
+    /* Additional styles specific to this page */
+    .hero {
+      min-height: 100vh;
       display: flex;
-      justify-content: flex-end; /* Align items to the right */
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
     }
-    .navbar a {
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #ffffff, #e6fffa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      opacity: 0.9;
+      line-height: 1.7;
+      animation: fadeInUp 0.8s ease-out 0.2s forwards;
+      opacity: 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      animation: fadeInUp 0.8s ease-out 0.4s forwards;
+      opacity: 0;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.6s forwards;
+      opacity: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
       
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 20px 20px;
-      border-radius: 20px; /* Rounded corners */
-      text-decoration: none;
-      font-size: 19px;
-      transition: border-bottom 0.3s ease; /* Smooth transition */
-    }
-    .navbar a:hover {
-      border-bottom: 2px solid white; /* Add underline on hover */
-    }
-    .signin-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 8px 16px; /* Adjusted padding */
-      font-size: 16px; /* Adjusted font size */
-      margin-left: 50%;
-      margin-top: 38%;
-      color: white;
-      background-color: green;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 20px; /* Rounded corners */
-      transition: background-color 0.3s ease;
-    }
-    .signin-button:hover {
-      background-color: #45a049; /* Darker green on hover */
+      .hero-subtitle {
+        font-size: 1.125rem;
+      }
+      
+      .stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .stat-item {
+        padding: 1rem 0;
+      }
     }
   </style>
 </head>
 <body>
-  <body>
-    <div class="navbar">
-      <a href="../loginpage/loginpage/index.html">Sign in</a>
-      <a href="about.html">About EcoCred</a>
-      <a href="why-us.html">Why Us</a>
-    </div>
-  <div class="video-container">
-    <video autoplay muted loop>
-      <source src="nature1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="overlay"></div>
-  </div>
-  <div class="content">
-    <img src="logo.png" alt="Eco Carbon Credit Platform Logo" class="logo">
-    <p>Offset your carbon footprint by trading carbon credits in our innovative platform.</p>
-    <p>Join us in the fight against climate change while supporting eco-friendly initiatives.</p>
-    <p>Together, let's make a positive impact on our planet.</p>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="EcoCred Logo">
+      EcoCred
+    </a>
     
-  </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <div class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#impact">Our Impact</a>
+      
+      <div class="nav-buttons">
+        <a href="../loginpage/loginpage/index.html" class="btn btn-outline">Sign In</a>
+        <a href="../loginpage/loginpage/register.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </nav>
 
-  <a href="../loginpage/loginpage/index.html" class="signin-button">Sign in</a>
-  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="video-container">
+      <video autoplay muted loop playsinline>
+        <source src="nature1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 class="hero-title">Trade Carbon Credits. Save the Planet.</h1>
+      <p class="hero-subtitle">Join the movement towards a sustainable future by buying, selling, and trading verified carbon credits on our transparent blockchain platform.</p>
+      
+      <div class="hero-buttons">
+        <a href="../loginpage/loginpage/register.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-leaf"></i> Get Started
+        </a>
+        <a href="#how-it-works" class="btn btn-outline btn-lg">
+          <i class="fas fa-play-circle"></i> Watch Demo
+        </a>
+      </div>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number"><i class="fas fa-tree"></i> 1M+</div>
+          <div class="stat-label">Trees Planted</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><i class="fas fa-co2"></i> 500K+</div>
+          <div class="stat-label">Tons CO₂ Offset</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><i class="fas fa-users"></i> 50K+</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <h3>1. Create an Account</h3>
+          <p>Sign up and complete your profile to start your carbon offset journey.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3>2. Calculate Your Footprint</h3>
+          <p>Use our tools to measure your carbon emissions from various activities.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3>3. Buy or Sell Credits</h3>
+          <p>Trade carbon credits on our secure, transparent marketplace.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>4. Track Your Impact</h3>
+          <p>Monitor your carbon footprint reduction and contribution to global sustainability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section id="impact" class="section">
+    <div class="container">
+      <div class="impact-content">
+        <div class="impact-text">
+          <h2>Real Impact, Real Results</h2>
+          <p>Every credit purchased through EcoCred directly funds verified carbon reduction projects around the world, with measurable environmental benefits.</p>
+          <ul class="impact-list">
+            <li><i class="fas fa-check-circle"></i> Verified carbon offset projects</li>
+            <li><i class="fas fa-check-circle"></i> Transparent blockchain tracking</li>
+            <li><i class="fas fa-check-circle"></i> Real-time impact reporting</li>
+            <li><i class="fas fa-check-circle"></i> Support for renewable energy</li>
+          </ul>
+          <a href="about.html" class="btn btn-primary">Learn More About Our Impact</a>
+        </div>
+        <div class="impact-visual">
+          <div class="impact-visual-inner">
+            <div class="impact-metric">
+              <div class="metric-value">500K+</div>
+              <div class="metric-label">Tons of CO₂ Offset</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Make a Difference?</h2>
+        <p>Join thousands of individuals and businesses already using EcoCred to offset their carbon footprint and support sustainable projects worldwide.</p>
+        <a href="../loginpage/loginpage/register.html" class="btn btn-primary btn-lg">Get Started for Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">
+            <img src="logo.png" alt="EcoCred Logo">
+            EcoCred
+          </a>
+          <p class="footer-tagline">Empowering climate action through transparent carbon credit trading.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-column">
+            <h3>Platform</h3>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 EcoCred. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', 
+        menuToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+      );
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll <= 0) {
+        navbar.classList.remove('scrolled');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !navbar.classList.contains('scrolled-down')) {
+        // Scroll down
+        navbar.classList.add('scrolled-down');
+      } else if (currentScroll < lastScroll && navbar.classList.contains('scrolled-down')) {
+        // Scroll up
+        navbar.classList.remove('scrolled-down');
+      }
+      
+      navbar.classList.add('scrolled');
+      lastScroll = currentScroll;
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+    });
+  </script>
 </body>
-<div class="navbar">
-  <a href="../loginpage/loginpage/index.html">Sign in</a>
-  <a href="about.html">About EcoCred</a>
-  <a href="why-us.html">Why Us</a>
-</div>
 </html>
