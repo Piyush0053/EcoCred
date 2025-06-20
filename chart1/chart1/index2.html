@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Credit Prices</title>
+    <style>
+        /* Add some basic styling */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #0F2027; /* Light gray background */
+            background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+            color: #0F2027; /* Dark gray text color */
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #2d2733; /* Dark purple heading color */
+        }
+        .quadrant {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .price-chart {
+            flex: 0 0 48%; /* Set flex basis for each price chart */
+            background-color: #222; /* White background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .price-chart:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .price-chart img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 4px;
+        }
+        .price-description {
+            text-align: justify;
+            color: #666; /* Dark gray text color */
+        }
+        #carbon-prices {
+            /* display: flex ; */
+            gap: 10px;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        #carbon-prices:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        #carbon-prices img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        /* Button styling */
+        .buy-button {
+            position: absolute;
+            top: 20px;
+            width: 20%;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green color */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .buy-button:hover {
+            background-color: #45a049; /* Darker green color on hover */
+        }
+    </style>
+</head>
+<body style="background-color: #222;"> <!-- Lighter gray background for the body -->
+    <h1 style="color: aliceblue;">Carbon Credit Prices</h1>
+    <!-- CarbonPrices Widget BEGIN -->
+    <div id="carbon-prices" style="background-color: #f2f2f2;"> <!-- Light gray background for the carbon prices chart -->
+        <img class="carbon-prices-image" src="carbon-prices-image.jpg" alt="Carbon Prices Image">
+        <script type="text/javascript" src="https://carboncredits.com/live-carbon-prices/index.js.php" async=""></script>
+    </div>
+    <!-- CarbonPrices Widget END -->
+
+    <button class="buy-button">Buy</button> <!-- Buy button -->
+    <br>
+    <div class="quadrant">
+        <div class="price-chart" style="background-color: #f2f2f2;"> <!-- Light gray background -->
+            <h2>Australia Spot Price</h2>
+            <img src="australia.png" alt="Australia Spot Price">
+            <p class="price-description">Initially, the Australian government introduced a carbon pricing scheme in 2011 but it was fairly quickly repealed in 2014. It would take until 2023 for Australia to take another crack at launching an ETS, featuring domestic offset-like products named Australian Carbon Credit Units, or ACCUs. While the Australian ETS is still in its nascent early stages, investors and speculators have already piled into ACCUs, even though the actual drafting of relevant legislation isn’t expected to begin until late 2023. Still, with ACCU prices capped at $75/tonne rising by CPI plus 2 percent a year, those loading up are expecting a supply/demand imbalance to drive prices towards the cap.</p>
+        </div>
+
+        <div class="price-chart" style="background-color: #f2f2f2;"> <!-- Light gray background -->
+            <h2>New Zealand Spot Price</h2>
+            <img src="newzeland.png" alt="New Zealand Spot Price">
+            <p class="price-description">Established in 2008, New Zealand’s NZ ETS is key to the government’s climate change targets, as evidenced by the fact that it’s been reviewed three times and amended seven times in the years since, with its fourth review currently under way in 2023. With all major sectors of New Zealand’s economy covered under the NZ ETS, it accounts for just over half of all of the island nation’s GHG emissions. One particular challenge for the New Zealand government is the fact that roughly half of the country’s emissions comes from agriculture – the country is still currently in the process of finalizing its accounting, reporting and pricing mechanisms for its farmers and growers.</p>
+        </div>
+    </div>
+
+    <div class="quadrant">
+        <div class="price-chart" style="background-color: #f2f2f2;"> <!-- Light gray background -->
+            <h2>China Price</h2>
+            <img src="china.png" alt="China Price">
+            <p class="price-description">China launched its own domestic ETS in 2021, though carbon credits had already traded been extensively at the provincial and municipal levels for years beforehand. The world’s largest in terms of emissions covered, China’s ETS is estimated to account for over 40% of the country’s carbon emissions (roughly 4 billion tCO2), largely from its power sector. The ETS is expected to expand to cover other sectors in the years to come, and should serve as an important tool in the Chinese government’s climate change mitigation plans.</p>
+        </div>
+
+        <div class="price-chart" style="background-color: #f2f2f2;"> <!-- Light gray background -->
+            <h2>South Korea Price</h2>
+            <img src="southkorea.png" alt="South Korea Price">
+            <p class="price-description">One of the first mandatory country-level Emissions Trading Schemes as well as the third largest in the world, South Korea’s K-ETS was launched in 2015 and covers nearly three-quarters of the entire country’s S1+S2 emissions. As one of the first movers in the compliance markets the K-ETS is already in its third phase of implementation, with futures trading expected later in 2023 and individual/international participation in 2024. South Korea has set a national target of net zero by 2050, and the K-ETS will serve as a cornerstone to achieve that.</p>
+        </div>
+    </div>
+
+    <!-- Add more quadrant sections for other regions if needed -->
+
+</body>
+</html>

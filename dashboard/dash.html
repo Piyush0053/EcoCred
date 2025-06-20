@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Navigation Bars</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CSS -->
+  <style>
+    /* Page Background */
+    body {
+      background-color: #222; 
+      background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+    }
+
+    /* Horizontal Navigation Bar */
+    .horizontal-nav {
+      background-color: rgba(0, 0, 0, 0); /* Transparent dark grey background */
+      overflow: hidden;
+      text-align: right; /* Align contents to the right */
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    }
+    .horizontal-nav a {
+      position: relative; /* Position relative for pseudo-element */
+      display: inline-block; /* Display links inline */
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    .horizontal-nav a:hover::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px; /* Line height */
+      background-color: white;
+      transition: width 0.3s ease; /* Transition effect */
+    }
+
+    /* Vertical Navigation Bar */
+    .vertical-nav {
+      display: none;
+      background-color: rgba(0, 0, 0, 0.05); /* Transparent dark grey background */
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      overflow-x: hidden;
+      padding-top: 50px;
+    }
+    .vertical-nav a {
+      padding: 10px 40px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #eee; /* Light grey text */
+      display: block;
+    }
+    .vertical-nav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    .sidebar-icon {
+      position: fixed;
+      top: 11px;
+      left: 12px; /* Align icon to the left */
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Add Logo and Branding -->
+  <div class="brand-header">
+    <h1 class="logo">EcoCred</h1>
+    <p class="tagline">Carbon Credit Trading Platform</p>
+  </div>
+
+  <!-- Horizontal Navigation Bar -->
+<div class="horizontal-nav">
+  <a href="#">Dashboard</a>
+  <a href="trade.html">Trade</a>
+  <a href="../chart1/chart1/index2.html">Pricing</a>
+  <a href="profile.html">Profile</a>
+</div>
+
+<!-- Vertical Navigation Bar -->
+<div class="vertical-nav" id="verticalNav">
+  <a href="#">Setting</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</div>
+
+<!-- Sidebar Icon -->
+<div class="sidebar-icon" onclick="toggleVerticalNav()">
+  <i class="fas fa-bars"></i>
+</div>
+
+<script>
+  function toggleVerticalNav() {
+    var verticalNav = document.getElementById("verticalNav");
+    if (verticalNav.style.display === "none") {
+      verticalNav.style.display = "block";
+    } else {
+      verticalNav.style.display = "none";
+    }
+  }
+</script>
+
+<!-- Add Dashboard Content -->
+<div class="dashboard-content">
+  <div class="dashboard-card">
+    <h2>Your Carbon Footprint</h2>
+    <div class="carbon-meter">
+      <div class="meter-fill" style="width: 65%;"></div>
+    </div>
+    <p>Current footprint: 8.5 tons CO2e/year</p>
+    <p>Goal: 5.0 tons CO2e/year</p>
+  </div>
+  
+  <div class="dashboard-card">
+    <h2>Your Credits</h2>
+    <p class="credit-count">15</p>
+    <p>Value: $325.50</p>
+    <button class="action-button">Trade Now</button>
+  </div>
+  
+  <div class="dashboard-card">
+    <h2>Market Trends</h2>
+    <p>Carbon credit prices have increased by 12% this month.</p>
+    <a href="../chart1/chart1/index2.html">View detailed pricing</a>
+  </div>
+</div>
+
+<!-- Add Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>About EcoCred</h3>
+      <p>Helping individuals and businesses offset their carbon footprint through innovative carbon credit trading.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="../EcoCred(front)/into.html">Home</a></li>
+        <li><a href="../EcoCred(front)/about.html">About</a></li>
+        <li><a href="../chart1/chart1/index2.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:ayusharya2702@gmail.com">ayusharya2702@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 EcoCred. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
